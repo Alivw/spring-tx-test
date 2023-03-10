@@ -15,6 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/tx")
 public class TestController {
 
+    /**
+     * 项目第一次启动
+     * @return
+     */
     @GetMapping
     public String hello() {
         return "hello world!";
