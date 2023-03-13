@@ -83,7 +83,7 @@ see org.springframework.transaction.annotation.Propagation
   
       @Transactional(rollbackFor = Exception.class)
       public void aFunction() {
-          //todo: 数据库操作A(增，删，该)
+          //todo: 数据库操作A(增，删，改)
           try {
               bClass.bFunction();
           } catch (Exception e) {
@@ -98,7 +98,7 @@ see org.springframework.transaction.annotation.Propagation
   
       @Transactional(rollbackFor = Exception.class)
       public void bFunction() {
-          //todo: 数据库操作A(增，删，该)
+          //todo: 数据库操作A(增，删，改)
           throw new RuntimeException("函数执行有异常!");
       }
   }
@@ -121,7 +121,7 @@ see org.springframework.transaction.annotation.Propagation
   
       @Transactional(rollbackFor = Exception.class)
       public void aFunction() {
-          //todo: 数据库操作A(增，删，该)
+          //todo: 数据库操作A(增，删，改)
           try {
               bClass.bFunction();
           } catch (Exception e) {
@@ -136,10 +136,10 @@ see org.springframework.transaction.annotation.Propagation
   
       @Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
       public void bFunction() {
-          //todo: 数据库操作A(增，删，该)
+          //todo: 数据库操作A(增，删，改)
           throw new RuntimeException("函数执行有异常!");
       }
   }
   ```
 
-  结果：bFunction函数里面的操作回滚了，aFunction里面的操作成功了。有了前面情况2的理解。这种情况也很好解释。两个函数不是同一个事务了。
+  结果：bFunction函数里面的操作回滚了，aFunction里面的操作成功了。
