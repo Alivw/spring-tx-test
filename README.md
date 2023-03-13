@@ -41,10 +41,12 @@ see org.springframework.transaction.annotation.Propagation
 - REQUIRED
 
   Support a current transaction, create a new one if none exists. 
-  
+
   ```shell
-curl http://localhost:8080/tx/propagation/0
+  curl http://localhost:8080/tx/propagation/0
   ```
+
+  
 
   ![image-20230313114116124](README/img/image-20230313114116124.png)
 
